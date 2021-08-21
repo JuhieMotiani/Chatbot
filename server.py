@@ -10,7 +10,6 @@
 #     app.run(port=3000)
 
 from flask import Flask, render_template, request
-import pandas as pd
 import cosine_similarity
 
 app = Flask("__main__")

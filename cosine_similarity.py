@@ -18,8 +18,9 @@ sent_tokens = nltk.sent_tokenize(raw)
 word_tokens = preprocessing.preprocess(raw)
 
 greetings = ("hello", "hi", "greetings", "hey")
-
 greeting_response = "Hello I am AlphaCharlie. I really love Coffee. You can ask me anything about it!"
+
+endwords = ("bye", "take care", "thank you", "see you")
 
 def response(user_response):
     flag=False
@@ -27,7 +28,10 @@ def response(user_response):
         flag = True
         return greeting_response
     
-    elif user_response.lower() != 'bye':
+    elif user_response.lower() in endwords:
+        return "Bye!"
+        
+    else:
         robo_response=''
         sent_tokens.append(user_response)
         TfidfVec = TfidfVectorizer(tokenizer=preprocessing.lemnormalize, stop_words='english')
@@ -44,9 +48,4 @@ def response(user_response):
             robo_response = robo_response+sent_tokens[idx]
             sent_tokens.remove(user_response)
             return robo_response
-    else:
-        return "Bye!"
-
-
-user_response = "bye"
-print(response(user_response))
+        
