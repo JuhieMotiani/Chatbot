@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import generateOutput
 
-app = Flask("__main__")
+app = Flask(__name__)
 
 @app.route("/", methods=['GET'])
 def my_index():
@@ -14,5 +14,6 @@ def output():
         output = generateOutput.response(user_input)
         return output
         
-            
-app.run(debug=True, port=3000)
+
+if __name__ == "__main__":
+    app.run(debug=True, port=3000)
