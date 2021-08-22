@@ -9,9 +9,9 @@ ps = PorterStemmer()
 lemmer = nltk.stem.WordNetLemmatizer()
 # Quiet=True is used because we want to download the package quietly, that is without printing any messages on the console
 # No message confirming package loading is printed and no errors or warnings are printed if package loading fails
-# nltk.download('popular', quiet=True)
-# nltk.download('punkt')
-# nltk.download('wordnet')
+nltk.download('popular', quiet=True)
+nltk.download('punkt')
+nltk.download('wordnet')
 
 # Lemmatization
 def lemtokens(tokens):
